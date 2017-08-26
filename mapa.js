@@ -12,7 +12,9 @@ document.querySelector('.heatmap').onclick = function(ev) {
 };*/
 
 
-// don't forget to add gmaps-heatmap.js
+/**
+ * Mapa de calor usando el mapa dinamico de google maps.
+ */
 var myLatlng = new google.maps.LatLng(7.6586, -73.3568);
 // map options,
 var myOptions = {
@@ -43,7 +45,7 @@ heatmap = new HeatmapOverlay(map,
 );
 
 var testData = {
-  max: 8,
+  max: 3,
   data: [
     {lat: 24.6408, lng:46.7728, count: 3},
     {lat: 50.75, lng:-1.55, count: 1},
@@ -55,12 +57,19 @@ var testData = {
     {lat: 5.75, lng:-70.00, count: 3}
   ]
 };
-
 heatmap.setData(testData);
 
 
 
 
+
+
+
+
+
+/**
+ * Generar puntos de calor con el click.....anula el zoom y arrastre del mapa de google.
+ */
 var heatmapInstance = h337.create({
   container: document.querySelector('.heatmap'),
   radius: 30
